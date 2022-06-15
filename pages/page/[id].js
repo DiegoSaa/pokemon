@@ -10,7 +10,7 @@ export default function Home({ pokemon }) {
       <ul className={styles.Home__pokemons_list}>
         {pokemon.map((item, index) => (
           <li key={index}>
-            <Link href={`/${index + 1}`}>
+            <Link href={`/${item.url.slice(-3,-1)}`}>
               <a className={styles.Home__reference}>
                 <Image
                   src={item.image}
@@ -32,15 +32,17 @@ export default function Home({ pokemon }) {
   )
 }
 
-export const getStaticProps = async () => {
-  const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=20');
+
+export const getServerSideProps = async ({params}) => {
+  console.log("params", params);
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=20$&offset=${params.id}`);
   const { results } = await res.json();
-  const pokemon = results.map((pokeman, index) => {
-    const paddedId = ('00' + (index + 1)).slice(-3);
+  const pokemon = results.map((pokemon, index) => {
+    const paddedId = ("00"+pokemon.url.slice(-3,-1)).slice(-3);
     const image = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddedId}.png`;
-    return { ...pokeman, image };
+    return { ...pokemon, image };
   });
   return {
     props: { pokemon },
-  };
+  };g
 }

@@ -1,13 +1,57 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:600,700&display=swap');
 
+.Login__pokedex_container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.Login__player_wrapper {
+  position: relative;
+  padding-top: 56.25%; /* 720 / 1280 = 0.5625 */
+}
+
+.Login__react_player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.Login__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+
+.Login__form_container {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.Login_pokemon_logo {
+  margin: 20px;
+  padding: 0 100px;
+}
+
 
 .Login__form{
-  width: 50%;
-  align-items: center;
-  justify-content: center;
-	flex-direction: column;
+  width: 100%;
 	margin: 30px auto;
   --primary: #4D6FE5;
+  text-align:center;
 }
 
 .Login__container {
@@ -23,14 +67,15 @@
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	cursor: pointer;
-	padding: 15px 0;
+	padding: 10px 5px;
 	border-radius: 5px;
 	color: #fff;
 	font-size: 1rem;
 	font-family: sans-serif;
-	background: lighten(var(primary), 5%);
+	background: #00bbd7;
 	box-shadow: 0px 1px 2px rgba(0,0,0,.13);
 	transition: all .2s ease;
+  margin: 5px auto;
 }
 
 .Login__submit:hover {
@@ -42,3 +87,4 @@
 		outline: none;
 		background: darken(var(primary), 7%);
 }
+
