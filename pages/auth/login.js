@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import Pokedex from '../../components/pokedex';
+import Pokedex from '../../components/Pokedex';
 import ReactPlayer from 'react-player/youtube';
 import styles from './Login.module.css';
-import PokemonLogo from '../../assets/images/PokemonLogo.svg';
+import PokemonLogo from '../../assets/images/pokemonLogo.svg';
 import Image from 'next/image';
 
 export default function Login() {
