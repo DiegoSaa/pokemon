@@ -4,6 +4,7 @@ import ReactPlayer from 'react-player/youtube';
 import styles from './Login.module.css';
 import PokemonLogo from '../../assets/images/pokemonLogo.svg';
 import Image from 'next/image';
+import WhoIsThatPokemon from '../../components/WhoIsThatPokemon';
 
 export default function Login() {
 
@@ -42,17 +43,19 @@ export default function Login() {
 
   return (
     <div className={styles.Login__pokedex_container}>
+        <WhoIsThatPokemon />
       {
         hasWindow && 
         <div className={styles.Login__player_wrapper}>
           <ReactPlayer
             url="https://www.youtube.com/embed/e0mgl1oHWqM"
             className={styles.Login__react_player}
-            playing  = {true}
             width="100%"
             height="100%"
             controls = {false}
             muted = {true}
+            playing
+            loop
           />
           <div className={styles.Login__overlay} />
         </div>

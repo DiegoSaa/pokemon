@@ -1,35 +1,37 @@
 import Link from 'next/link';
+import styles from './Pokemon.module.css';
 
 const Pokemon = ({ pokemon }) => {
     return (
-        <div>
-            <h1 className="text-4xl mb-2 text-center capitalize">
+        <div className={styles.container}>
+            <h1 className={styles.title}>
                 {pokemon.id}. {pokemon.name}
             </h1>
-            <div className="flex flex-col items-center bg-purple-50 rounded-md p-8">
-                <img className="mx-auto" src={pokemon.image} alt={pokemon.name} />
-                <p>
-                    <span className="font-bold mr-2">Weight:</span> {pokemon.weight}
+            <div className={styles.card}>
+                <img className={styles.image} src={pokemon.image} alt={pokemon.name} />
+                <p className={styles.info}>
+                    <span className={styles.bold}>Weight:</span> {pokemon.weight}
                 </p>
-                <p>
-                    <span className="font-bold mr-2">Height:</span>
+                <p className={styles.info}>
+                    <span className={styles.bold}>Height:</span>
                     {pokemon.height}
                 </p>
-                <h2 className="text-2xl mt-6 mb-2">Types</h2>
+                <h2 className={styles.subtitle}>Types</h2>
                 {pokemon.types.map((type, index) => (
-                    <p key={index}>{type.type.name}</p>
+                    <p className={styles.info} key={index}>{type.type.name}</p>
                 ))}
             </div>
-            <p className="mt-10 text-center">
+            <p className={styles.link}>
                 <Link href="/">
-                    <a>
-                        <button className="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg">Home</button>
+                    <a className={styles.button}>
+                        Home
                     </a>
                 </Link>
             </p>
         </div>
     )
 }
+
 
 export const getServerSideProps = async (context) => {
     const { id } = context.query;

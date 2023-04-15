@@ -3,33 +3,36 @@ import Image from 'next/image';
 import styles from './Home.module.css';
 
 export default function Home({ pokemon }) {
-
   return (
     <>
       <h1 className={styles.Home__container}>Pokedex</h1>
-      <ul className={styles.Home__pokemons_list}>
+      <div className={styles.Home__pokemons_list}>
         {pokemon.map((item, index) => (
-          <li key={index}>
-            <Link href={`/${index + 1}`}>
-              <a className={styles.Home__reference}>
+          <Link key={index} href={`/${index + 1}`}>
+            <a className={styles.Home__card}>
+              <div className={styles.Home__card__image}>
                 <Image
                   src={item.image}
                   alt={item.name}
-                  className="w-20 h-20 mr-3"
                   width={200}
                   height={200}
                 />
-                <span className= {styles.Home__name}>
-                  {index + 1}.
-                </span>
-                {item.name}
-              </a>
-            </Link>
-          </li>
+              </div>
+              <div className={styles.Home__card__info}>
+                <span className={styles.Home__card__number}>{index + 1}.</span>
+                <span className={styles.Home__card__name}>{item.name}</span>
+              </div>
+            </a>
+          </Link>
         ))}
-      </ul>
+      </div>
+      <div className={styles.Home__button_container}>
+        <Link href="/auth/login">
+          <a className={styles.Home__button}>Login</a>
+        </Link>
+      </div>
     </>
-  )
+  );
 }
 
 export const getStaticProps = async () => {
@@ -43,4 +46,4 @@ export const getStaticProps = async () => {
   return {
     props: { pokemon },
   };
-}
+};
