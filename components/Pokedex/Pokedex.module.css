@@ -14,9 +14,9 @@
     background-color: black;
     border: #282828 solid 25px;
     border-radius: 20px;
-    margin: 17px auto;
     z-index: 10;
     transition: background-color 1000ms linear;
+    min-width: 300px;
 }
 
 .Pokedex__top {
