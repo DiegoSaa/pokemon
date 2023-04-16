@@ -25,6 +25,7 @@ export default function WhoIsThatPokemon() {
                             width={150}
                             height={150}
                             layout="fixed"
+                            className={styles.imageFilter}
                         />
                     </Link>
                 </div>

@@ -90,3 +90,12 @@
 .container:hover .button {
     opacity: 1;
 }
+
+.imageFilter {
+    filter: contrast(0%) brightness(0%);
+    transition: filter 0.5s ease-in-out;
+}
+
+.imageFilter:hover {
+    filter: none;
+}
